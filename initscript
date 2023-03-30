@@ -1,0 +1,39 @@
+#!/bin/zsh
+
+# RUN FROM HOME DIR
+
+if ! yay_loc="$(type -p "yay")" || [[ -z $yay_loc ]]; then
+    git clone https://aur.archlinux.org/yay.git
+    cd yay
+    makepkg -si
+    yay --version
+fi
+
+yay -Syy alacritty-git fnm atool bashtrash brave-bin btop clac clipmenu dunst entr fd file fzf lf-git gzip lynx maim make man-db mediainfo moreutils neovim noto-fonts noto-fonts-emoji openssh patch pinentry-dmenu pipewire pipewire-alsa pipewire-jack pipewire-pulse poppler rar ripgrep telegram-desktop-bin ttf-font-awesome ttf-hack-nerd ueberzug unclutter unzip vi vim w3m wget wireplumber xcape xclip zoxide zsh zsh-fast-syntax-highlighting-git
+
+git clone https://github.com/ggVGy/dwm.git
+git clone https://github.com/ggVGy/dmenu.git
+git clone https://github.com/ggVGy/scripts.git
+git clone https://github.com/ggVGy/alacritty.git
+git clone https://github.com/ggVGy/lf.git
+git clone https://github.com/ggVGy/nvim.git
+git clone https://github.com/ggVGy/zsh.git
+
+cd dwm
+sudo make install
+cd
+cd dmenu
+sudo make install
+
+cd
+mkdir .local/bin
+mv scripts/* .local/bin
+
+mv alacritty .config
+mv lf .config
+mv nvim .config
+
+mv zsh/zsh .config
+mv zsh/shell .config
+mv zsh/.zprofile ./
+
