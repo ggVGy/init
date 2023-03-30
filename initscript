@@ -9,7 +9,7 @@ if ! yay_loc="$(type -p "yay")" || [[ -z $yay_loc ]]; then
     yay --version
 fi
 
-yay -Syy alacritty-git fnm atool bashtrash brave-bin btop clac clipmenu dunst entr fd file fzf lf-git gzip lynx maim make man-db mediainfo moreutils neovim noto-fonts noto-fonts-emoji openssh patch pinentry-dmenu pipewire pipewire-alsa pipewire-jack pipewire-pulse poppler rar ripgrep telegram-desktop-bin ttf-font-awesome ttf-hack-nerd ueberzug unclutter unzip vi vim w3m wget wireplumber xcape xclip zoxide zsh zsh-fast-syntax-highlighting-git
+yay -Syy alacritty-git curl fnm atool bashtrash brave-bin btop clac clipmenu dunst entr fd file fzf lf-git gzip lynx maim make man-db mediainfo moreutils neovim noto-fonts noto-fonts-emoji openssh patch pinentry-dmenu pipewire pipewire-alsa pipewire-jack pipewire-pulse poppler rar ripgrep telegram-desktop-bin ttf-font-awesome ttf-hack-nerd ueberzug unclutter unzip vi vim w3m wget wireplumber xcape xclip zoxide zsh zsh-fast-syntax-highlighting-git
 
 git clone https://github.com/ggVGy/dwm.git
 git clone https://github.com/ggVGy/dmenu.git
@@ -37,3 +37,5 @@ mv zsh/zsh .config
 mv zsh/shell .config
 mv zsh/.zprofile ./
 
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
